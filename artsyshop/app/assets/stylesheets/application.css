@@ -14,7 +14,7 @@
  *= require_self
  */
 
-.headSec {
+.header {
     background: url("/assets/site/banner.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
@@ -25,7 +25,7 @@
     overflow: auto;
 }
 
-.headSec h1 {
+.header h1 {
     color: #ffffff;
     font-size: 80px;
     padding: 15px;
@@ -59,9 +59,9 @@ li a {
     text-align: center;
 }
 
-.welcomeIm {width: 30%;}
+.welcomeImage {width: 30%;}
 
-.foot {
+.footer {
     min-height: 80px;
     background-color: #b3e0ff;
     width: 100%;
@@ -90,7 +90,7 @@ li a {
     text-decoration: none;
 }
 
-.itemhols {
+.itemBox {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
@@ -100,7 +100,7 @@ li a {
     min-height: 300px;
 }
 
-.itemhols h1 {
+.itemBox h1 {
    display: block;
     color: #4CAF50;
     text-align: center;
@@ -109,7 +109,7 @@ li a {
     font-size: 20px
 }
 
-.itemhols p {
+.itemBox p {
    display: block;
     color: #4CAF50;
     text-align: center;
@@ -118,7 +118,7 @@ li a {
     font-size: 16px
 }
 
-.itemholsIm {
+.itemImage {
     width: 30%; 
     margin-left: auto; 
     margin-right: auto; 

@@ -8,12 +8,11 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     
-    <header class="headSec">
+    <header class="header">
       
       <h1>Artsy Shop</h1>
       
       <ul>
-        
         <li><%= link_to 'Home', '/' %></li>
         <li><%= link_to 'Products', '/items' %></li>
         <li><%= link_to 'Cart', cart_path %></li>
@@ -36,18 +35,18 @@
         <%end%>
         
         <%= render 'layouts/search' %>
-        
       </ul>
       
     </header>
   </head>
   
   <body>
+    
     <div class="container">
       <%= yield %>
     </div>
     
-    <footer class="foot">
+    <footer class="footer">
       <h1>I'm the footer</h1>
     </footer>
     

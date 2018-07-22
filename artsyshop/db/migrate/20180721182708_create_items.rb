@@ -7,6 +7,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :image_url
       t.string :category
       t.string :author
+      t.integer :rating
 
       t.timestamps
     end

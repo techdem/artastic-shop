@@ -29,9 +29,11 @@
             <% total += quantity * item.price %>
         </tr>
         <%end%>
+        
         <tr>
             Grand Total: <%= number_to_currency(total, :unit => "£") %>
         </tr>
+        
     </table>
     
     <a href="/cart/clear" class="button">Clear Cart</a>
