@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> | Artsyshop</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <header class="headSec">
+      
+      <h1>Artsy Shop</h1>
+      
+      <ul>
+        
+        <li><%= link_to 'Home', '/' %></li>
+        <li><%= link_to 'Products', '/items' %></li>
+        <li><%= link_to 'Cart', cart_path %></li>
+        <li><%= link_to 'About', about_path %></li>
+        <li><%= link_to 'Help', help_path %></li>
+        
+        <% if session[:login] == 1 %>
+        <li><%= link_to 'Admin Log Out', logout_path %></li>
+        <%else%>
+        <li><%= link_to 'Admin Log In', login_path %></li>
+        <%end%>
+        
+        <% if user_signed_in? %>
+        <li><a href='#'>Hi <%= current_user.email %></a></li>
+        <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+        <li><%= link_to 'Log Out', destroy_user_session_path, :method => :delete %></li>
+        <%else%>
+        <li><%= link_to 'Register', new_user_registration_path %></li>
+        <li><%= link_to 'Log In', new_user_session_path %></li>
+        <%end%>
+        
+        <%= render 'layouts/search' %>
+        
+      </ul>
+      
+    </header>
+  </head>
+  
+  <body>
+    <div class="container">
+      <%= yield %>
+    </div>
+    
+    <footer class="foot">
+      <h1>I'm the footer</h1>
+    </footer>
+    
+  </body>
+</html>
