@@ -15,5 +15,26 @@
   <%= @order.status %>
 </p>
 
+<p>
+  <strong>Items:</strong>
+</p>
+
+<table id="customers">
+  <% @order.orderitems.each do |id| %>
+  <% item = Item.find_by_id(id.item_id) %>
+    <tr>
+      <td>
+        <div class='image'>
+          <%= link_to (image_tag item.image_url, :style => 'height:40px'), item %>
+        </div>
+      </td>
+      
+      <td class='title'><%= link_to item.title, item %></td>
+      <td class='price'><%= number_to_currency(item.price, :unit => '£') %></td>
+
+    </tr>
+  <%end%>
+</table>
+
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
