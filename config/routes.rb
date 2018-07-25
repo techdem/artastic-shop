@@ -19,8 +19,8 @@ Rails.application.routes.draw do
   
   get '/about' => 'static_pages#about'
   get '/help' => 'static_pages#help'
-  get '/login' => 'user#login'
-  get '/logout' => 'user#logout'
+  
+  get '/account' => 'orders#index'
   
   get '/cart/clear' => 'cart#clearCart'
   get '/cart' => 'cart#index'

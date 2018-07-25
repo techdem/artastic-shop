@@ -21,7 +21,7 @@ class CartController < ApplicationController
     end
     
     if cart[id] then
-      cart[id] = cart[id] + 1
+      cart[id] = 1
     else
       cart[id] = 1
     end
@@ -32,7 +32,7 @@ class CartController < ApplicationController
   def remove
     
     id = params[:id]
-    cart = sessions[:cart]
+    cart = session[:cart]
     cart.delete id
     
     redirect_to :root

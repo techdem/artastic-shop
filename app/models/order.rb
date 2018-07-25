@@ -7,5 +7,13 @@ class Order < ApplicationRecord
       
   end
   
+  def email
+    user.email
+  end
+  
+  def role
+    user.role
+  end
+  
   has_many:orderitems
 end

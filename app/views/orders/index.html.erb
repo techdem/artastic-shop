@@ -14,18 +14,23 @@
 
   <tbody>
     <% @orders.each do |order| %>
+      <% if order.role == current_user.role || current_user.role >= 2 %>
       <tr>
         <td><%= order.order_date %></td>
-        <td><%= order.user %></td>
+        <td><%= order.email %></td>
         <td><%= order.status %></td>
         <td><%= link_to 'Show', order %></td>
+        <% if user_signed_in? && current_user.role >= 2 %>
         <td><%= link_to 'Edit', edit_order_path(order) %></td>
         <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
       </tr>
-    <% end %>
+      <%end%>
+    <%end%>
   </tbody>
 </table>
 
 <br>
-
+<% if user_signed_in? && current_user.role >= 2 %>
 <%= link_to 'New Order', new_order_path %>
+<%end%>
