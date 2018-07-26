@@ -17,10 +17,7 @@ Rails.application.routes.draw do
   
   root 'static_pages#home'
   
-  get '/about' => 'static_pages#about'
-  get '/help' => 'static_pages#help'
-  
-  get '/account' => 'orders#index'
+  get '/account' => 'orders#index'    # Create path for account page that displays order history
   
   get '/cart/clear' => 'cart#clearCart'
   get '/cart' => 'cart#index'
@@ -29,8 +26,9 @@ Rails.application.routes.draw do
   
   get '/checkout' => 'cart#createOrder'
   
+  get '/about' => 'static_pages#about'
+  get '/help' => 'static_pages#help'
   post '/search' => 'items#search'
   
   root :to => 'site#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

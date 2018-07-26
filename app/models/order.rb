@@ -7,13 +7,13 @@ class Order < ApplicationRecord
       
   end
   
-  def email
+  def email   # Define method to get email of user from an order
     user.email
   end
   
-  def role
+  def role    # Define method to get role of user from an order
     user.role
   end
   
-  has_many:orderitems
+  has_many:orderitems, :dependent => :destroy   # Order items must also be removed from the database
 end
