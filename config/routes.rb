@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   
   get '/account' => 'orders#index'    # Create path for account page that displays order history
+  get '/elevation' => 'user#elevation', as:'elevation'
+  
+  get '/users' => 'user#index'
+  get '/approval/:id' => 'user#approval', as:'approval'
   
   get '/cart/clear' => 'cart#clearCart'
   get '/cart' => 'cart#index'
@@ -28,7 +32,8 @@ Rails.application.routes.draw do
   
   get '/about' => 'static_pages#about'
   get '/help' => 'static_pages#help'
-  post '/search' => 'items#search'
   
+  post '/search' => 'items#search'
+
   root :to => 'site#home'
 end
