@@ -15,138 +15,159 @@
  */
 
 .header {
-    background: url("/assets/site/banner.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    min-height:10px;
-    background-color: #b3e0ff;
-    width: 100%;
-    margin-bottom:10px;
-    overflow: auto;
+  background: url("/assets/site/banner.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  min-height:10px;
+  background-color: #b3e0ff;
+  width: 100%;
+  margin-bottom:10px;
+  overflow: auto;
 }
 
 .header h1 {
-    color: #ffffff;
-    font-size: 80px;
-    padding: 15px;
-    
+  color: #ffffff;
+  font-size: 80px;
+  padding: 15px;
 }
 
-ul { 
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;    
+ul {
+  position:relative;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  align-items:center;
+  overflow: hidden;
+  background-color: #333;    
 }
 
 li {float:left;}
 
 li a {
-    display: block;
-    color: #ffffff;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+a {
+  color: green;
+  font-weight: bold;
+}
+
+a:visited {
+  color: green;
+}
+
+a:hover {
+  background-color: silver;
+}
+
+.searchBox {
+  display:inline-block;
+  position:absolute;
+  top:50%;
+  right:0%;
+  transform: translate(-50%, -50%);
 }
 
 .mainCont { 
     
-    margin: auto;
-    width:80%;
-    border: 3px solid #b3e0ff;
-    padding: 10px;
-    text-align: center;
+  margin: auto;
+  width:80%;
+  border: 3px solid #b3e0ff;
+  padding: 10px;
+  text-align: center;
 }
 
 .welcomeImage {width: 30%;}
 
 .footer {
-    min-height: 80px;
-    background-color: #b3e0ff;
-    width: 100%;
-    margin-top: 10px;
-    overflow: auto;
+  min-height: 40px;
+  background-color: #b3e0ff;
+  width: 100%;
+  margin-top: 10px;
+  overflow: auto;
 }
 
 .container {
-      background: url("/assets/Site/clubhead.png");
-      background-repeat:no-repeat;
-      background-position:right bottom;
-      width: 100%;
-      min-height: 700px;
+  background: url("/assets/Site/clubhead.png");
+  background-repeat:no-repeat;
+  background-position:right bottom;
+  width: 100%;
+  min-height: 700px;
 }
 
 #itemsContainer {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 #itemsContainer h1 {
-   display: block;
-    color: #4CAF50;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+  display: block;
+  color: #4CAF50;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 .itemBox {
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-    display: inline-block;
-    width: 22%;
-    padding:10px;
-    min-height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  display: inline-block;
+  width: 22%;
+  padding:10px;
+  min-height: 300px;
 }
 
 .itemBox h1 {
-   display: block;
-    color: #4CAF50;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 20px
+  display: block;
+  color: #4CAF50;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px
 }
 
 .itemBox p {
    display: block;
-    color: #4CAF50;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 16px
+  color: #4CAF50;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 16px
 }
 
 .itemImage {
-    width: 30%; 
-    margin-left: auto; 
-    margin-right: auto; 
-    display: block;
+  width: 30%; 
+  margin-left: auto; 
+  margin-right: auto; 
+  display: block;
 }
 
 .button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
 #customers {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 }
 
 #customers td, #customers th {
-    border: 1px solid #ddd;
-    padding: 8px;
+  border: 1px solid #ddd;
+  padding: 8px;
 }
 
 #customers tr:nth-child(even){background-color: #f2f2f2;}
@@ -154,9 +175,29 @@ li a {
 #customers tr:hover {background-color: #ddd;}
 
 #customers th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #4CAF50;
-    color: white;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+@media screen and (max-width: 1000px) {
+
+  .header {
+    background-size: cover;
+  }
+  
+  .searchBox {
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .header h1 {
+    font-size: 40px;
+  }
+
 }
