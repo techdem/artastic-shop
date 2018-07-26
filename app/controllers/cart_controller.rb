@@ -35,7 +35,7 @@ class CartController < ApplicationController
     cart = session[:cart]
     cart.delete id
     
-    redirect_to :items
+    redirect_to :cart
   end
   
   def clearCart
