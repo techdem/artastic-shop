@@ -1,4 +1,5 @@
 <p id='notice'><%= notice %></p>
+<%provide(:title, 'View Item') %>
 
 <div id='itemsContainer'>
   
@@ -15,6 +16,12 @@
     </p>
     
     <p>
+      <% unless @cart.has_key?(@item.id.to_s) %>
+        <a href='/cart/<%=@item.id %>' class='button'>Add to Cart</a>
+      <% else %>
+        <a href='/cart' class='button'>&#10004;</a>
+      <%end%>
+      
       <%= link_to 'Edit', edit_item_path(@item), :class => 'button', :role => 'button' %>
       <%= link_to 'Back', items_path, :class => 'button', :role => 'button' %>
     </p>

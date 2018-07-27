@@ -22,7 +22,7 @@ class CartController < ApplicationController
     
     cart[id] = 1    # User can only add one item of each in the basket
     
-    redirect_to :action => :index
+    redirect_back(fallback_location: root_path)
   end
   
   def remove
@@ -57,5 +57,4 @@ class CartController < ApplicationController
     @orderitems = Orderitem.where(order_id: Order.last)
     session[:cart] = nil
   end
-    
 end

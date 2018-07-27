@@ -22,8 +22,8 @@
         <td class='title'><%= link_to item.title, item %></td>
         <td class='price'><%= number_to_currency(item.price, :unit => '€') %></td>
         <td class='quantity'><%= quantity %></td>
-        <td class='price'><%= number_to_currency(quantity * item.price, :unit => '£') %></td>
-        <td class='title'><a href="/cart/remove/<%= item.id %>" style='font-size: 40px; text-decoration: none'> X </a></td>
+        <td class='price'><%= number_to_currency(quantity * item.price, :unit => '€') %></td>
+        <td class='title'><a href="/cart/remove/<%= item.id %>" style='font-size: 40px; color: red; text-decoration: none'> X </a></td>
               
       </tr>
           
@@ -35,10 +35,10 @@
   </table>
     
   <tr>
-    Grand Total: <%= number_to_currency(total, :unit => '£') %>
+    Grand Total: <%= number_to_currency(total, :unit => '€') %>
   </tr>
   
-  <% if !@cart.empty? %>
+  <% unless @cart.empty? %>
     <a href="/cart/clear" class='button'>Clear Cart</a>
     <a href="/checkout" class='button'>Checkout</a>
   <%end%>
