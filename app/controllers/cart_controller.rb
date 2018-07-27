@@ -20,11 +20,7 @@ class CartController < ApplicationController
       cart = session[:cart]
     end
     
-    if cart[id] then
-      cart[id] = 1
-    else
-      cart[id] = 1
-    end
+    cart[id] = 1    # User can only add one item of each in the basket
     
     redirect_to :action => :index
   end
@@ -45,14 +41,16 @@ class CartController < ApplicationController
   end
   
   def createOrder
-    @user = User.find(current_user.id)
-    @order = @user.orders.build(:order_date => DateTime.now, :status => 'Pending')
-    @order.save
-    @cart = session[:cart] || {}
-    @cart.each do |id,quantity|
-      item = Item.find_by_id(id)
-      @orderitem = @order.orderitems.build(:item_id => item.id, :title => item.title, :description => item.description, :quantity => quantity, :price => item.price)
-      @orderitem.save
+    if !session[:cart].blank?   # Prevent order duplication and empty orders
+      @user = User.find(current_user.id)
+      @order = @user.orders.build(:order_date => DateTime.now, :status => 'Pending')
+      @order.save
+      @cart = session[:cart]
+      @cart.each do |id,quantity|
+        item = Item.find_by_id(id)
+        @orderitem = @order.orderitems.build(:item_id => item.id, :title => item.title, :description => item.description, :quantity => quantity, :price => item.price)
+        @orderitem.save
+      end
     end
     
     @orders = Order.all

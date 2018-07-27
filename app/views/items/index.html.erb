@@ -1,13 +1,18 @@
 <p id="notice"><%= notice %></p>
 <%provide(:title, "Products") %>
 
-<div id="itemsContainer">
+<br>
+<% if user_signed_in? && current_user.role >= 1 %>
+<%= link_to 'New Item', new_item_path, :class => 'button', :role => 'button' %>
+<%end%>
+
+<div id='itemsContainer'>
   
   <h1>Products</h1>
   
   <% @items.each do |item| %>
   
-  <div class="itemBox">
+  <div class='itemBox'>
     
     <h1><%=item.title %></h1>
     
@@ -34,8 +39,3 @@
   </div>
   <%end%>
 </div>
-
-<br>
-<% if user_signed_in? && current_user.role >= 2 %>
-<%= link_to 'New Item', new_item_path, :class => 'button', :role => 'button' %>
-<%end%>

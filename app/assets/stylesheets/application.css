@@ -14,12 +14,16 @@
  *= require_self
  */
 
+body {
+  min-width: 500px;
+  background-color: #FFFFF0;
+}
+
 .header {
   background: url("/assets/site/banner.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   min-height:10px;
-  background-color: #b3e0ff;
   width: 100%;
   margin-bottom:10px;
   overflow: auto;
@@ -38,7 +42,7 @@ ul {
   padding: 0;
   align-items:center;
   overflow: hidden;
-  background-color: #333;    
+  background-color: #333333;    
 }
 
 li {float:left;}
@@ -50,13 +54,13 @@ li a {
   text-decoration: none;
 }
 
-a {
-  color: green;
+a:link {
+  color: #FFD700;
   font-weight: bold;
 }
 
 a:visited {
-  color: green;
+  color: #FFD700;
 }
 
 a:hover {
@@ -84,7 +88,7 @@ a:hover {
 
 .footer {
   min-height: 40px;
-  background-color: #b3e0ff;
+  background-color: #333333;
   width: 100%;
   margin-top: 10px;
   overflow: auto;
@@ -186,6 +190,10 @@ a:hover {
 
   .header {
     background-size: cover;
+  }
+  
+  .header h1 {
+    font-size: 60px;
   }
   
   .searchBox {
