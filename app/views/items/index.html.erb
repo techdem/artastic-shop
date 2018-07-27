@@ -1,5 +1,5 @@
-<p id="notice"><%= notice %></p>
-<%provide(:title, "Products") %>
+<p id='notice'><%= notice %></p>
+<%provide(:title, 'Products') %>
 
 <br>
 <% if user_signed_in? && current_user.role >= 1 %>
@@ -12,30 +12,30 @@
   
   <% @items.each do |item| %>
   
-  <div class='itemBox'>
-    
-    <h1><%=item.title %></h1>
-    
-    <%= link_to (image_tag item.image_url, :class => 'itemImage'), item %>
-    <p><%= item.description %></p>
-    <p>Price <%= number_to_currency(item.price, :unit => '€') %></p>
-    
-    <br>
-    Category: <%= item.category %>
-    <br>
-    Author: <%= item.author %>
-    
-    <p>
-      <%= link_to 'Show', item, :class => 'button', :role => 'button' %>
+    <div class='itemBox'>
       
-      <a href="/cart/<%=item.id %>" class='button'>Add to Cart</a>
-
-      <% if user_signed_in? && current_user.role >= 2 %>
-      <%= link_to 'Edit', edit_item_path(item), :class => 'button', :role => 'button' %>
-      <%= link_to 'Destroy', item, method: :delete, data:{confirm:'Are you sure?'}, :class => 'button', :role => 'button' %>
-      <%end%>
-    </p>
-    
-  </div>
+      <h1><%=item.title %></h1>
+      
+      <%= link_to (image_tag item.image_url, :class => 'itemImage'), item %>
+      <p><%= item.description %></p>
+      <p>Price <%= number_to_currency(item.price, :unit => '€') %></p>
+      
+      <br>
+      Category: <%= item.category %>
+      <br>
+      Author: <%= item.author %>
+      
+      <p>
+        <%= link_to 'Show', item, :class => 'button', :role => 'button' %>
+        
+        <a href='/cart/<%=item.id %>' class='button'>Add to Cart</a>
+  
+        <% if user_signed_in? && current_user.role >= 2 %>
+          <%= link_to 'Edit', edit_item_path(item), :class => 'button', :role => 'button' %>
+          <%= link_to 'Destroy', item, method: :delete, data:{confirm:'Are you sure?'}, :class => 'button', :role => 'button' %>
+        <%end%>
+      </p>
+      
+    </div>
   <%end%>
 </div>

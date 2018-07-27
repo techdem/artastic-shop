@@ -8,8 +8,8 @@
 
 <div id='itemsContainer'>
   <table id='customers'>
-      <% total = 0 %>
-      <% @cart.each do |id, quantity| %>
+    <% total = 0 %>
+    <% @cart.each do |id, quantity| %>
       <% item = Item.find_by_id(id) %>
       
       <tr>
@@ -18,28 +18,29 @@
             <%= link_to (image_tag item.image_url, :style => 'height:40px'), item %>
           </div>
         </td>
-        
+          
         <td class='title'><%= link_to item.title, item %></td>
         <td class='price'><%= number_to_currency(item.price, :unit => '€') %></td>
         <td class='quantity'><%= quantity %></td>
         <td class='price'><%= number_to_currency(quantity * item.price, :unit => '£') %></td>
         <td class='title'><a href="/cart/remove/<%= item.id %>" style='font-size: 40px; text-decoration: none'> X </a></td>
-            
+              
       </tr>
-        
+          
       <tr>
         <% total += quantity * item.price %>
       </tr>
-      <%end%>
+    <%end%>
       
-    </table>
+  </table>
     
-    <tr>
-        Grand Total: <%= number_to_currency(total, :unit => '£') %>
-    </tr>
+  <tr>
+    Grand Total: <%= number_to_currency(total, :unit => '£') %>
+  </tr>
   
   <% if !@cart.empty? %>
-  <a href="/cart/clear" class='button'>Clear Cart</a>
-  <a href="/checkout" class='button'>Checkout</a>
+    <a href="/cart/clear" class='button'>Clear Cart</a>
+    <a href="/checkout" class='button'>Checkout</a>
   <%end%>
+  
 </div>

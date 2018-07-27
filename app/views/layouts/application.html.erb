@@ -20,7 +20,7 @@
         <li><%= link_to 'Help', help_path %></li>
         
         <% if user_signed_in? %>
-        <li><a href="/account">Hello <%= current_user.email.split('@')[0].capitalize %> !</a></li>
+        <li><a href='/account'>Hello <%= current_user.email.split('@')[0].capitalize %> !</a></li>
         <li><%= link_to 'Log Out', destroy_user_session_path, :method => :delete %></li>
         <%else%>
         <li><%= link_to 'Sign Up', new_user_registration_path %></li>
@@ -35,13 +35,11 @@
   
   <body>
     
-    <div class="container">
+    <div class='container'>
       <%= yield %>
     </div>
     
-    <footer class="footer">
-      
+    <footer class='footer'>
     </footer>
-    
   </body>
 </html>

@@ -1,5 +1,5 @@
-<p id="notice"><%= notice %></p>
-<%provide(:title, "Requests") %>
+<p id='notice'><%= notice %></p>
+<%provide(:title, 'Requests') %>
 
 <table>
   <thead>
@@ -8,7 +8,6 @@
       <th>E-Mail</th>
       <th>Role</th>
       <th>Status</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
   
@@ -17,21 +16,25 @@
       <tr>
         <td><%= user.id %></td>
         <td><%= user.email %></td>
+        
         <% if user.role == 0 %>
-        <td>User</td>
+          <td>User</td>
         <%end%>
+        
         <% if user.role == 1 %>
-        <td>Patron</td>
+          <td>Patron</td>
         <%end%>
+        
         <% if user.role == 2 %>
-        <td>Admin</td>
+          <td>Admin</td>
         <%end%>
+        
         <% if user.elevation? %>
-        <td>User has requested elevation!
-        <%= link_to 'Approve', approval_path(user.id), data: { confirm: 'Are you sure you wish to give the user patron status?' } %>
-        </td>
+          <td>User has requested elevation!
+          <%= link_to 'Approve', approval_path(user.id), data: { confirm: 'Are you sure you wish to give the user patron status?' } %>
+          </td>
         <% else %>
-        <td>User is happy!</td>
+          <td>User is happy!</td>
         <%end%>
       </tr>
     <%end%>
