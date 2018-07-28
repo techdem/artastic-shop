@@ -14,7 +14,7 @@
   
   <tbody>
     <% @orders.each do |order| %>
-      <% if order.role == current_user.role || current_user.role >= 2 %>
+      <% if order.user_id == current_user.id || current_user.role >= 2 %>
         <tr>
           <td><%= order.order_date %></td>
           <td><%= order.email %></td>
