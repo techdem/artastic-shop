@@ -1,6 +1,29 @@
 <p id='notice'><%= notice %></p>
 <%provide(:title, 'Orders') %>
 
+<h1>Profile</h1>
+
+<p>
+  <strong>E-mail:</strong>
+  <%= current_user.email %>
+</p>
+
+<p>
+  <strong>Registered:</strong>
+  <%= current_user.created_at %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <% if current_user.role == 0 %>
+  User
+  <% elsif current_user.role == 1 %>
+  Patron
+  <% else %>
+  Admin
+  <%end%>
+</p>
+
 <h1>Orders</h1>
 
 <table>
@@ -23,7 +46,7 @@
           
           <% if user_signed_in? && current_user.role >= 2 %>
             <td><%= link_to 'Edit', edit_order_path(order) %></td>
-            <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Delete', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <%end%>
           
         </tr>

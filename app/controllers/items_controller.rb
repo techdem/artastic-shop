@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
   def search
     @search_term = params[:q]
     search = "%#{params[:q]}%"
-    @items = Item.where("title like ? OR author like ? OR category like?", search, search, search)  # Search title and author fields
+    @items = Item.where("title like ? OR author like ? OR category like?", search, search, search)  # Search title, author and category fields
   end
   
   def create
