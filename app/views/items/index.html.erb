@@ -21,7 +21,7 @@
       <p>Price <%= number_to_currency(item.price, :unit => '€') %></p>
       
       <br>
-      Category: <%= item.category %>
+      Category: <%= link_to item.category, '/search/' + item.category %>
       <br>
       Author: <%= link_to item.author, '/search/' + item.author %>
       

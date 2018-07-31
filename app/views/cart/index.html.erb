@@ -15,14 +15,13 @@
       <tr>
         <td>
           <div class='image'>
-            <%= link_to (image_tag item.image_url, :style => 'height:40px'), item %>
+            <%= link_to (image_tag item.image_url, :style => 'height:50px'), item %>
           </div>
         </td>
           
         <td class='title'><%= link_to item.title, item %></td>
+        <td class='category'><%= item.category %></td>
         <td class='price'><%= number_to_currency(item.price, :unit => '€') %></td>
-        <td class='quantity'><%= quantity %></td>
-        <td class='price'><%= number_to_currency(quantity * item.price, :unit => '€') %></td>
         <td class='title'><a href="/cart/remove/<%= item.id %>" style='font-size: 40px; color: red; text-decoration: none'> X </a></td>
               
       </tr>
