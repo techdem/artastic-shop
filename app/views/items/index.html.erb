@@ -23,7 +23,7 @@
       <br>
       Category: <%= item.category %>
       <br>
-      Author: <%= link_to item.author %>
+      Author: <%= link_to item.author, '/search/' + item.author %>
       
       <p>
         <%= link_to 'Show', item, :class => 'button', :role => 'button' %>

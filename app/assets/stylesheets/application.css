@@ -32,15 +32,15 @@ a:hover {
   background-color: silver;
 }
 
-.title {
+.home {
   text-decoration: none;
 }
 
-.title:hover {
+.home:hover {
   text-shadow: 3px 2px gold;
 }
 
-a.title:hover {
+a.home:hover {
   background-color: transparent;
 }
 

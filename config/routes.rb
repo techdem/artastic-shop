@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   get '/about' => 'static_pages#about'
   get '/help' => 'static_pages#help'
   
+  get '/search/:q' => 'items#search'
   post '/search' => 'items#search'
 
   root :to => 'site#home'
