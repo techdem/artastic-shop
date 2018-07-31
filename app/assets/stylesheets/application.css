@@ -19,6 +19,31 @@ body {
   background-color: #F5FFFA;
 }
 
+a:link {
+  color: #191970;
+  font-weight: bold;
+}
+
+a:visited {
+  color: #191970;
+}
+
+a:hover {
+  background-color: silver;
+}
+
+.title {
+  text-decoration: none;
+}
+
+.title:hover {
+  text-shadow: 3px 2px gold;
+}
+
+a.title:hover {
+  background-color: transparent;
+}
+
 .header {
   background: url("/assets/site/banner.jpg");
   background-repeat: no-repeat;
@@ -54,17 +79,13 @@ li a {
   text-decoration: none;
 }
 
-a:link {
+li a:link {
   color: #FFD700;
   font-weight: bold;
 }
 
-a:visited {
+li a:visited {
   color: #FFD700;
-}
-
-a:hover {
-  background-color: silver;
 }
 
 .searchBox {
