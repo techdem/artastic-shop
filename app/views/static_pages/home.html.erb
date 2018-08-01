@@ -1,3 +1,43 @@
 <%provide(:title, 'Home') %>
 
-<h1>StaticPages#home</h1>
+<% if user_signed_in? %>
+<h2> It's good to see you again, <%= current_user.email.split('@')[0].capitalize %>! Your last login was at <%= current_user.last_sign_in_at %></h2>
+<br>
+<h3> Your recent orders are available on the <a href='/account'>user profile page</a>!</h3>
+<%end%>
+<br>
+<h1>Welcome to Artsy, the online art gallery!</h1>
+<br>
+<h2>Recently added items:</h2>
+<table id='customers'>
+  <% @history[-5..-1].each do |item| %>
+    <% item = Item.find_by_id(item.id) %>
+      <tr>
+        <td>
+          <div class='image'>
+            <%= link_to (image_tag item.image_url, :style => 'height:40px'), item %>
+          </div>
+        </td>
+
+        <td class='title'><%= link_to item.title, item %></td>
+        <td class='price'><%= number_to_currency(item.price, :unit => '€') %></td>
+      </tr>
+  <%end%>
+</table>
+<br>
+<h2>Recently sold items:</h2>
+<table id='customers'>
+  <% @ordered[-5..-1].each do |item| %>
+    <% item = Item.find_by_id(item.item_id) %>
+      <tr>
+        <td>
+          <div class='image'>
+            <%= link_to (image_tag item.image_url, :style => 'height:40px'), item %>
+          </div>
+        </td>
+
+        <td class='title'><%= link_to item.title, item %></td>
+        <td class='price'><%= number_to_currency(item.price, :unit => '€') %></td>
+      </tr>
+  <%end%>
+</table>

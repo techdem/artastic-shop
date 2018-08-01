@@ -9,7 +9,7 @@
 <div id='itemsContainer'>
   <table id='customers'>
     <% total = 0 %>
-    <% @cart.each do |id, quantity| %>
+    <% @cart.each do |id| %>
       <% item = Item.find_by_id(id) %>
       
       <tr>
@@ -27,7 +27,7 @@
       </tr>
           
       <tr>
-        <% total += quantity * item.price %>
+        <% total += item.price %>
       </tr>
     <%end%>
       
