@@ -66,5 +66,5 @@
 <%end%>
 
 <% if user_signed_in? && current_user.role >= 2 %>
-  <%= link_to 'View Requests', users_path, :class => 'button' %>
+  <%= link_to 'User Requests', users_path, :class => 'button' %>
 <%end%>

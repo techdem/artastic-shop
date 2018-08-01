@@ -17,6 +17,7 @@
 body {
   min-width: 500px;
   background-color: #F5FFFA;
+  line-height: 1.6em;
 }
 
 a:link {

@@ -9,9 +9,9 @@ class ApplicationController < ActionController::Base
     @history = Item.all
     @ordered = Orderitem.all
     if session[:cart] then
-      @cart = session[:cart]
+      @incart = session[:cart]
     else
-      @cart = {}
+      @incart = {}
     end
   end
 end

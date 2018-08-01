@@ -16,7 +16,7 @@
     </p>
     
     <p>
-      <% unless @cart.has_key?(@item.id.to_s) %>
+      <% unless @incart.has_key?(@item.id.to_s) %>
         <a href='/cart/<%=@item.id %>' class='button'>Add to Cart</a>
       <% else %>
         <a href='/cart' class='button'>&#10004;</a>

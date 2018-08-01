@@ -9,7 +9,7 @@
 <div id='itemsContainer'>
   <table id='customers'>
     <% total = 0 %>
-    <% @cart.each do |id| %>
+    <% @cart.each do |id, value| %>
       <% item = Item.find_by_id(id) %>
       
       <tr>
