@@ -110,9 +110,31 @@ li a:visited {
 .footer {
   min-height: 40px;
   background-color: #333333;
+  color: #ffffff;
   width: 100%;
   margin-top: 10px;
   overflow: auto;
+}
+
+.footer a:link {
+  color: #FFD700;
+  font-weight: bold;
+}
+
+.footer a:visited {
+  color: #FFD700;
+}
+
+#e-mail {
+  padding: 0px 20px;
+  width:40%;
+	float:left;
+}
+
+#copyright{
+  padding: 0px 20px;
+	width:40%;
+	float:right;
 }
 
 .container {
@@ -205,6 +227,30 @@ li a:visited {
   text-align: left;
   background-color: #4CAF50;
   color: white;
+}
+
+.textbox {
+  width: 100%;
+  text-align: center;
+}
+
+#about {
+  width: 50%;
+	display: inline-block;
+	padding: 20px;
+	background-color:#191970;
+	border-radius:25px;
+	color:#fff;
+}
+
+#faq {
+  width: 50%;
+	display: inline-block;
+	padding: 20px;
+	background-color:#191970;
+	border-radius:25px;
+	color:#fff;
+	text-align: justify;
 }
 
 @media screen and (max-width: 1000px) {

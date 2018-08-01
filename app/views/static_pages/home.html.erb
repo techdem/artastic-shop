@@ -10,7 +10,7 @@
 <br>
 <h2>Recently added items:</h2>
 <table id='customers'>
-  <% @history[-5..-1].each do |item| %>
+  <% @history[-3..-1].each do |item| %>
     <% item = Item.find_by_id(item.id) %>
       <tr>
         <td>
@@ -27,7 +27,7 @@
 <br>
 <h2>Recently sold items:</h2>
 <table id='customers'>
-  <% @ordered[-5..-1].each do |item| %>
+  <% @ordered[-3..-1].each do |item| %>
     <% item = Item.find_by_id(item.item_id) %>
       <tr>
         <td>
