@@ -10,7 +10,7 @@
   <div class='itemhols'>
     <p>Price <%=number_to_currency(@item.price, :unit => '€') %>
     <br>
-    Category: <%= link_to @item.category, '/search/' + @item.category %>
+    Category: <%= link_to @item.category, '/filter/' + @item.category %>
     <br>
     Author: <%= link_to @item.author, '/search/' + @item.author %>
     </p>

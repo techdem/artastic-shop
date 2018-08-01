@@ -1,14 +1,9 @@
-<p id='notice'><%= notice %></p>
-<%provide(:title, 'Inventory') %>
-
-<br>
-<% if user_signed_in? && current_user.role >= 1 %>
-<%= link_to 'New Item', new_item_path, :class => 'button', :role => 'button' %>
-<%end%>
+<%provide(:title, @filter_term) %>
 
 <div id='itemsContainer'>
   
-  <h1>Inventory</h1>
+  <h1><%= @filter_term + 's' %></h1>
+  <h1><%= yield(:f) %></h1>
   
   <% @items.each do |item| %>
   
@@ -21,7 +16,7 @@
       <p>Price <%= number_to_currency(item.price, :unit => '€') %></p>
       
       <br>
-      Category: <%= link_to item.category, '/filter/' + item.category %>
+      Category: <%= link_to item.category, '/search/' + item.category %>
       <br>
       Author: <%= link_to item.author, '/search/' + item.author %>
       
