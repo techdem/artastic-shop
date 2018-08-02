@@ -62,7 +62,11 @@
 <a href='/users/edit' class='button'>Edit Account</a>
 
 <% if user_signed_in? && current_user.role == 0 %>
-  <%= link_to 'Request Elevation', elevation_path, :class => 'button', data: { confirm: 'An admin will be notified regarding your request! Proceed?' } %>
+  <% unless current_user.elevation? %>
+    <%= link_to 'Request Elevation', elevation_path, :class => 'button', data: { confirm: 'An admin will be notified regarding your request! Proceed?' } %>
+  <%else%>
+    <%= link_to 'Cancel Elevation', elevation_cancel_path, :class => 'button', data: { confirm: 'Are you sure you wish to cancel the request?' } %>
+  <%end%>
 <%end%>
 
 <% if user_signed_in? && current_user.role >= 2 %>

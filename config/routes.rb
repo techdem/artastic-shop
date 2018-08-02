@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   
   get '/account' => 'orders#index'    # Create path for account page that displays order history
   get '/elevation' => 'user#elevation', as:'elevation'    # Create path for elevation method
+  get '/elevation/cancel' => 'user#elevation_cancel', as:'elevation_cancel'    # Create path for elevation cancel
   
   get '/users' => 'user#index'
   get '/approval/:id' => 'user#approval', as:'approval'   # Create path for approval method

@@ -6,7 +6,12 @@ class UserController < ApplicationController
   
   def elevation   # Method to request elevation
     current_user.update_attribute(:elevation, true)
-    redirect_to :items
+    redirect_to :orders
+  end
+  
+  def elevation_cancel   # Method to request elevation
+    current_user.update_attribute(:elevation, false)
+    redirect_to :orders
   end
   
   def approval    # Method to approve elevation
