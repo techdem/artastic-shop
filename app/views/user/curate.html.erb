@@ -1,7 +1,7 @@
 <%provide(:title, 'Curate') %>
 
 <table id='table'>
-  <% @history.each do |id| %>
+  <% @history.reverse_each do |id| %>
     <% item = Item.find_by_id(id) %>
       <tr>
         <td>
