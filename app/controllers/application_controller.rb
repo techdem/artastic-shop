@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     :root
   end
   
-  def init
+  def init  # Define initialisation method that will declare global variables for items, orderitems and cart
     @history = Item.all
     @ordered = Orderitem.all
     if session[:cart] then

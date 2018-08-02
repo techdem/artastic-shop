@@ -22,7 +22,7 @@ class CartController < ApplicationController
     
     cart[id] = 1    # User can only add one item of each in the basket
     
-    redirect_back(fallback_location: root_path)
+    redirect_back(fallback_location: root_path)   # Reload the current page when an item is added to the cart
   end
   
   def remove
@@ -41,7 +41,7 @@ class CartController < ApplicationController
   end
   
   def createOrder
-    if !session[:cart].blank?   # Prevent order duplication and empty orders
+    unless session[:cart].blank?   # Prevent order duplication and empty orders
       @user = User.find(current_user.id)
       @order = @user.orders.build(:order_date => DateTime.now, :status => 'Pending')
       @order.save

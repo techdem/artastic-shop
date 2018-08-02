@@ -4,12 +4,12 @@ class UserController < ApplicationController
     @users = User.all
   end
   
-  def elevation
+  def elevation   # Method to request elevation
     current_user.update_attribute(:elevation, true)
     redirect_to :items
   end
   
-  def approval
+  def approval    # Method to approve elevation
     User.find(params[:id]).update_attribute(:role, 1)
     User.find(params[:id]).update_attribute(:elevation, false)
     redirect_to :users

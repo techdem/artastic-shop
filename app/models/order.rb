@@ -7,11 +7,11 @@ class Order < ApplicationRecord
       
   end
   
-  def email   # Define method to get email of user from an order
+  def email   # Method to get email of user from an order
     user.email
   end
   
-  def role    # Define method to get role of user from an order
+  def role    # Method to get role of user from an order
     user.role
   end
   

@@ -6,10 +6,10 @@
       <ul>
       <% item.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <% end %>
+      <%end%>
       </ul>
     </div>
-  <% end %>
+  <%end%>
 
   <div class="field">
     <%= form.label :title %>
@@ -44,4 +44,4 @@
   <div class="actions">
     <%= form.submit %>
   </div>
-<% end %>
+<%end%>

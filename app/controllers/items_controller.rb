@@ -18,21 +18,21 @@ class ItemsController < ApplicationController
   def search
     @search_term = params[:q]
     search = "%#{params[:q]}%"
-    @items = Item.where("title like ? OR author like ? OR category like?", search, search, search)  # Search title, author and category fields
+    @items = Item.where("title like ? OR author like ? OR category like?", search, search, search)    # Search title, author and category fields
   end
   
   def filter
     @filter_term = params[:f]
     filter = "%#{params[:f]}%"
-    @items = Item.where("category like?", filter)
+    @items = Item.where("category like?", filter)   # Filter items by category
   end
   
-  def curate_approve
+  def curate_approve    # Method for approving items
     Item.find(params[:id]).update_attribute(:approved, 1)
     redirect_to :curate
   end
   
-  def curate_disapprove
+  def curate_disapprove   # Method for hiding items
     Item.find(params[:id]).update_attribute(:approved, 0)
     redirect_to :curate
   end
@@ -42,7 +42,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.html { redirect_to @item, notice: 'Item created and awaiting approval.' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
@@ -77,6 +77,6 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:title, :description, :price, :image_url, :category, :author, :image)
+      params.require(:item).permit(:title, :description, :price, :category, :author, :image)    # Item has an image parameter
     end
 end

@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2018_08_02_102317) do
     t.string "title"
     t.text "description"
     t.decimal "price"
-    t.string "image_url"
+    t.string "image_url"    # Deprecated column
     t.string "category"
     t.string "author"
     t.integer "rating"

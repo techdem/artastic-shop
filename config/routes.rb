@@ -18,14 +18,14 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   
   get '/account' => 'orders#index'    # Create path for account page that displays order history
-  get '/elevation' => 'user#elevation', as:'elevation'
+  get '/elevation' => 'user#elevation', as:'elevation'    # Create path for elevation method
   
   get '/users' => 'user#index'
-  get '/approval/:id' => 'user#approval', as:'approval'
+  get '/approval/:id' => 'user#approval', as:'approval'   # Create path for approval method
   
   get '/curate' => 'user#curate'
-  get '/curate/add/:id' => 'items#curate_approve', as:'curate_approve'
-  get '/curate/remove/:id' => 'items#curate_disapprove', as:'curate_disapprove'
+  get '/curate/add/:id' => 'items#curate_approve', as:'curate_approve'    # Create path for curating items
+  get '/curate/remove/:id' => 'items#curate_disapprove', as:'curate_disapprove'   # Create path for hidding items
   
   get '/cart/clear' => 'cart#clearCart'
   get '/cart' => 'cart#index'
@@ -37,8 +37,8 @@ Rails.application.routes.draw do
   get '/about' => 'static_pages#about'
   get '/help' => 'static_pages#help'
   
-  get 'filter/:f' => 'items#filter'
-  get '/search/:q' => 'items#search'
+  get 'filter/:f' => 'items#filter'   # Create path for filter method
+  get '/search/:q' => 'items#search'    # Create path to search by parameter
   post '/search' => 'items#search'
 
   root :to => 'site#home'

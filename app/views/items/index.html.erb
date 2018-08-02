@@ -30,7 +30,7 @@
   
           <% unless @incart.has_key?(item.id.to_s) %>
             <a href='/cart/<%=item.id %>' class='button'>Add to Cart</a>
-          <% else %>
+          <%else%>
             <a href='/cart' class='button'>&#10004;</a>
           <%end%>
           
@@ -41,6 +41,6 @@
         </p>
         
       </div>
-    <% end %>
-  <% end %>
+    <%end%>
+  <%end%>
 </div>

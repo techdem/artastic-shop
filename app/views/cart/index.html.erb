@@ -7,7 +7,7 @@
 <p id='notice'><%= notice %></p>
 
 <div id='itemsContainer'>
-  <table id='customers'>
+  <table id='table'>
     <% total = 0 %>
     <% @cart.each do |id, value| %>
       <% item = Item.find_by_id(id) %>
@@ -15,7 +15,7 @@
       <tr>
         <td>
           <div class='image'>
-            <%= link_to (image_tag item.image_url, :style => 'height:50px'), item %>
+            <%= link_to (image_tag item.image.url, :style => 'height:50px'), item %>
           </div>
         </td>
           
@@ -34,7 +34,7 @@
   </table>
     
   <tr>
-    Grand Total: <%= number_to_currency(total, :unit => '€') %>
+    Sub Total: <%= number_to_currency(total, :unit => '€') %>
   </tr>
   
   <% unless @cart.empty? %>
