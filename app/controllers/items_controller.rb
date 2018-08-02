@@ -27,6 +27,16 @@ class ItemsController < ApplicationController
     @items = Item.where("category like?", filter)
   end
   
+  def curate_approve
+    Item.find(params[:id]).update_attribute(:approved, 1)
+    redirect_to :curate
+  end
+  
+  def curate_disapprove
+    Item.find(params[:id]).update_attribute(:approved, 0)
+    redirect_to :curate
+  end
+  
   def create
     @item = Item.new(item_params)
 

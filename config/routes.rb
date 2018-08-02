@@ -23,6 +23,10 @@ Rails.application.routes.draw do
   get '/users' => 'user#index'
   get '/approval/:id' => 'user#approval', as:'approval'
   
+  get '/curate' => 'user#curate'
+  get '/curate/add/:id' => 'items#curate_approve', as:'curate_approve'
+  get '/curate/remove/:id' => 'items#curate_disapprove', as:'curate_disapprove'
+  
   get '/cart/clear' => 'cart#clearCart'
   get '/cart' => 'cart#index'
   get '/cart/:id' => 'cart#add'
