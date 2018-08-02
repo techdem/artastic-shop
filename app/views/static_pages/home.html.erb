@@ -10,12 +10,12 @@
 <br>
 <h2>Recently added items:</h2>
 <table id='customers'>
-  <% @history[-3..-1].each do |item| %>
+  <% @history[-3..-1].reverse_each do |item| %>
     <% item = Item.find_by_id(item.id) %>
       <tr>
         <td>
           <div class='image'>
-            <%= link_to (image_tag item.image_url, :style => 'height:40px'), item %>
+            <%= link_to (image_tag item.image.url, :style => 'height:40px'), item %>
           </div>
         </td>
 
@@ -27,12 +27,12 @@
 <br>
 <h2>Recently sold items:</h2>
 <table id='customers'>
-  <% @ordered[-3..-1].each do |item| %>
+  <% @ordered[-3..-1].reverse_each do |item| %>
     <% item = Item.find_by_id(item.item_id) %>
       <tr>
         <td>
           <div class='image'>
-            <%= link_to (image_tag item.image_url, :style => 'height:40px'), item %>
+            <%= link_to (image_tag item.image.url, :style => 'height:40px'), item %>
           </div>
         </td>
 

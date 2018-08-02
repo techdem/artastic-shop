@@ -4,7 +4,7 @@
 <div id='itemsContainer'>
   
   <h1><%= @item.title %></h1>
-  <%= image_tag @item.image_url, :class => 'welcomeImage' %>
+  <%= image_tag @item.image.url, :class => 'welcomeImage' %>
   <h2><%= @item.description %></h2>
   
   <div class='itemhols'>
