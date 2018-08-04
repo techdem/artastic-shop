@@ -77,6 +77,6 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:title, :description, :price, :category, :author, :image)    # Item has an image parameter
+      params.require(:item).permit(:title, :description, :price, :category, :author, :image).merge(user_id: current_user.id)    # Item has an image parameter and will also get the current user id
     end
 end

@@ -15,10 +15,14 @@
     </p>
     
     <p>
-      <% unless @incart.has_key?(@item.id.to_s) %>
-        <a href='/cart/<%=@item.id %>' class='button'>Add to Cart</a>
-      <% else %>
-        <a href='/cart' class='button'>&#10004;</a>
+      <% if @item.approved? %>
+        <% unless @incart.has_key?(@item.id.to_s) %>
+          <a href='/cart/<%=@item.id %>' class='button'>Add to Cart</a>
+        <% else %>
+          <a href='/cart' class='button'>&#10004;</a>
+        <%end%>
+      <%else%>
+        <h3>Item pending approval</h3>
       <%end%>
       
       <% if user_signed_in? && current_user.role >= 2 %>

@@ -34,6 +34,9 @@
   <% counter_history = 0 %>
   <% @ordered.reverse_each do |item| %>
     <% item = Item.find_by_id(item.item_id) %>
+      <% if item.nil? %>
+      <% next %>
+    <%end%>
       <% if item.approved? && counter_history < 3 %>
       <% counter_history += 1 %>
         <tr>

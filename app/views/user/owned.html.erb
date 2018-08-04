@@ -3,7 +3,15 @@
 <table id='table'>
   <% @history.reverse_each do |id| %>
     <% if id.user_id == current_user.id %>
-    <% item = Item.find_by_id(id) %>
+      <% item = Item.find_by_id(id) %>
+  
+      <% times_ordered = 0 %>
+      <% @ordered.each do |ordered| %>
+        <% if ordered.item_id == item.id %>
+          <% times_ordered += 1 %>
+        <%end%>
+      <%end%>
+  
       <tr>
         <td>
           <div class='image'>
@@ -13,7 +21,7 @@
 
         <td class='title'><%= link_to item.title, item %></td>
 
-        <td>Times ordered: </td>
+        <td>Times ordered: <%= times_ordered %></td>
         
         <% unless item.approved? %>
           <td>Pending</td>

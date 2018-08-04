@@ -27,6 +27,9 @@
 <table id='table'>
   <% @order.orderitems.each do |id| %>
     <% item = Item.find_by_id(id.item_id) %>
+    <% if item.nil? %>
+      <td>Item no longer available</td>
+    <%else%>
       <tr>
         <td>
           <div class='image'>
@@ -37,8 +40,12 @@
         <td class='title'><%= link_to item.title, item %></td>
         <td class='price'><%= number_to_currency(item.price, :unit => '€') %></td>
       </tr>
+    <%end%>
   <%end%>
 </table>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
+<%if user_signed_in? && current_user.role >= 2 %>
+  <%= link_to 'Edit', edit_order_path(@order) %>
+<%end%>
+
 <%= link_to 'Back', orders_path %>
