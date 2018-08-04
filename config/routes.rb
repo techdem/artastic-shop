@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get '/users' => 'user#index'
   get '/approval/:id' => 'user#approval', as:'approval'   # Create path for approval method
   
+  get '/owned' => 'user#owned'
   get '/curate' => 'user#curate'
   get '/curate/add/:id' => 'items#curate_approve', as:'curate_approve'    # Create path for curating items
   get '/curate/remove/:id' => 'items#curate_disapprove', as:'curate_disapprove'   # Create path for hidding items

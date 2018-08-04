@@ -1,9 +1,9 @@
 <%provide(:title, 'Home') %>
 
 <% if user_signed_in? %>
-<h2> It's good to see you again, <%= current_user.email.split('@')[0].capitalize %>! Your last login was at <%= current_user.last_sign_in_at %></h2>
+<h2>It's good to see you again, <%= current_user.email.split('@')[0].capitalize %>! Your last login was at <%= current_user.last_sign_in_at %></h2>
 <br>
-<h3> Your recent orders are available on the <a href='/account'>user profile page</a>!</h3>
+<h3>Your recent orders are available on the <a href='/account'>user profile page</a>!</h3>
 <%end%>
 <br>
 <h1>Welcome to Artastic, the online art gallery!</h1>

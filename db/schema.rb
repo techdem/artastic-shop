@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_02_102317) do
+ActiveRecord::Schema.define(version: 2018_08_04_082527) do
 
   create_table "items", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.decimal "price"
-    t.string "image_url"    # Deprecated column
+    t.string "image_url"
     t.string "category"
     t.string "author"
     t.integer "rating"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2018_08_02_102317) do
     t.bigint "image_file_size"
     t.datetime "image_updated_at"
     t.boolean "approved", default: false
+    t.integer "user_id"
   end
 
   create_table "orderitems", force: :cascade do |t|
