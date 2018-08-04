@@ -1,6 +1,12 @@
+<%provide(:title, 'Edit Item') %>
+
+<% if user_signed_in? && current_user.role >= 2 %>
 <h1>Editing Item</h1>
 
 <%= render 'form', item: @item %>
 
 <%= link_to 'Show', @item %>
 <%= link_to 'Back', items_path %>
+<%else%>
+<h2>You are not allowed to edit items, have a nice day!</h2>
+<%end%>
