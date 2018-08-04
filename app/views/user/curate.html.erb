@@ -3,6 +3,14 @@
 <table id='table'>
   <% @history.reverse_each do |id| %>
     <% item = Item.find_by_id(id) %>
+    
+      <% times_ordered = 0 %>
+      <% @ordered.each do |ordered| %>
+        <% if ordered.item_id == item.id %>
+          <% times_ordered += 1 %>
+        <%end%>
+      <%end%>
+      
       <tr>
         <td>
           <div class='image'>
@@ -11,7 +19,9 @@
         </td>
 
         <td class='title'><%= link_to item.title, item %></td>
-
+        
+        <td>Times ordered: <%= times_ordered %></td>
+        
         <% unless item.approved? %>
           <td><%= link_to 'Approve', curate_approve_path(item.id), data: { confirm: 'Are you sure you wish to approve this item?' } %></td>
         <%else%>
