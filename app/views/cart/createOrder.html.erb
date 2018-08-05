@@ -1,25 +1,26 @@
 <%provide(:title, 'Checkout') %>
 
+<% @orders.limit(1).order(id: :desc).each do |order| %>
+  <% @number = order.id %>
+<%end%>
+
 <div id='itemsContainer'>
-  <h2>Order <%=@orderReg %> placed!</h2>
+  <h2>Order placed!</h2>
   
     <table id='table'>
       <tr>
-        <% @orders.limit(1).order(id: :desc).each do |order| %>
-          <td>Order reference <%= order.id %></td>
-        <%end%>
+        <td>Order reference <%= @number %></td>
       </tr>
     </table>
     
     <table id='table'>
       <% @total = 0 %>
-      <% @orderitems.each do |id,quantity| %>
+      <% @orderitems.each do |id,value| %>
       <tr>
         <% item = Orderitem.find_by_id(id) %>
         
         <td><%= item.title %></td>
-        <td><%= item.quantity %></td>
-        <td><%= number_to_currency(item.quantity, :unit => '€') %></td>
+        <td><%= number_to_currency(item.price, :unit => '€') %></td>
       </tr>
       
       <% @total += item.price %>
@@ -38,6 +39,26 @@
       
       <tr>
         <td>Grand total &euro;<%= @overall %></td>
+        <td>
+          <%= form_tag charges_path do %>
+            <article>
+              <% if flash[:error].present? %>
+                <div id="error_explanation">
+                  <p><%= flash[:error] %></p>
+                </div>
+              <% end %>
+            </article>
+          
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                    data-description="Pay for order <%= @number %>"
+                    data-amount="<%= @overall*100 %>"
+                    data-locale="auto">
+                    amount = <%= @overall*100 %>;
+                    order_id = <%= @number %>;
+            </script>
+          <% end %>
+        </td>
       </tr>
     </table>
 </div>

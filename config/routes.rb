@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'cart/index'
   resources :items
   
+  resources :charges
+  
   root 'static_pages#home'
   
   get '/account' => 'orders#index'    # Create path for account page that displays order history
