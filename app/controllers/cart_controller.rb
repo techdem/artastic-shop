@@ -40,6 +40,11 @@ class CartController < ApplicationController
     redirect_to :action => :index
   end
   
+  def pay
+    Order.find(params[:id]).update_attribute(:status, 'Paid')
+    redirect_to :account
+  end
+  
   def createOrder
     unless session[:cart].blank?   # Prevent order duplication and empty orders
       @user = User.find(current_user.id)

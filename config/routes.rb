@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   get '/cart/remove/:id' => 'cart#remove'
   
   get '/checkout' => 'cart#createOrder'
+  get '/checkout/:id' => 'cart#pay', as:'pay'
   
   get '/about' => 'static_pages#about'
   get '/help' => 'static_pages#help'
