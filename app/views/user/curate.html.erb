@@ -1,11 +1,11 @@
 <%provide(:title, 'Curate') %>
 
 <table id='table'>
-  <% @history.reverse_each do |id| %>
+  <% @history.order(:id).reverse_each do |id| %>
     <% item = Item.find_by_id(id) %>
     
       <% times_ordered = 0 %>
-      <% @ordered.each do |ordered| %>
+      <% @ordered.order(:id).each do |ordered| %>
         <% if ordered.item_id == item.id %>
           <% times_ordered += 1 %>
         <%end%>

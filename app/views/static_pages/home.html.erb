@@ -11,7 +11,7 @@
 <h2>Recently added items:</h2>
 <table id='table'>
   <% counter_recent = 0 %>
-  <% @history.reverse_each do |item| %>
+  <% @history.order(:id).reverse_each do |item| %>
     <% item = Item.find_by_id(item.id) %>
       <% if item.approved? && counter_recent < 3 %>
       <% counter_recent += 1 %>
@@ -32,7 +32,7 @@
 <h2>Recently sold items:</h2>
 <table id='table'>
   <% counter_history = 0 %>
-  <% @ordered.reverse_each do |item| %>
+  <% @ordered.order(:id).reverse_each do |item| %>
     <% item = Item.find_by_id(item.item_id) %>
       <% if item.nil? %>
       <% next %>

@@ -11,7 +11,7 @@
   </thead>
   
   <tbody>
-    <% @users.each do |user| %>
+    <% @users.order(:id).each do |user| %>
       <tr>
         <td><%= user.id %></td>
         <td><%= user.email %></td>
@@ -30,7 +30,7 @@
         
         <% if user.elevation? %>
           <td>User has requested elevation!
-          <%= link_to 'Approve', curate_path(user.id), data: { confirm: 'Are you sure you wish to give the user patron status?' } %>
+          <%= link_to 'Approve', approval_path(user.id), data: { confirm: 'Are you sure you wish to give the user patron status?' } %>
           </td>
         <% else %>
           <td>User is happy!</td>
