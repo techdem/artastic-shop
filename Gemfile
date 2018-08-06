@@ -20,7 +20,7 @@ gem 'devise', '4.4.3'
 
 gem 'paperclip', '6.1.0'
 
-gem 'stripe'
+# gem 'stripe'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
